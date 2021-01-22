@@ -1,12 +1,6 @@
 import React from "react";
 import "./App.css";
-import ReactImage from "./assets/images/react.svg";
 
-const App = () => (
-  <div>
-    Hi! This is React app!
-    <img alt="" src={ReactImage} />
-  </div>
-);
+const App = () => <div>Find a job</div>;
 
 export default App;
