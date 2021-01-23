@@ -9,6 +9,10 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+.container {
+  padding: 1rem;
+}
+
 /** HEADER **/
 .header {
   background-color: aqua;
