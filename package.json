@@ -14,7 +14,8 @@
     "@babel/preset-react": "^7.12.10",
     "babel-loader": "^8.2.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "typeface-roboto": "^1.1.13"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
