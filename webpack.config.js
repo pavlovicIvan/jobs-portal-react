@@ -10,8 +10,8 @@ module.exports = {
   devtool: "eval-source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      favicon: "./public/fav.png",
+      template: path.resolve(__dirname, "public/index.html"),
+      favicon: path.resolve(__dirname, "public/fav.png"),
     }),
   ],
   module: {
