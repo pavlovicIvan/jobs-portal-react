@@ -1,8 +1,15 @@
+// React
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-const SearchForm = () => {
-  const [jobDesc, setJobDesc] = useState("React");
-  const [location, setLocation] = useState("London");
+// Custom hooks
+import useFetch from "../hooks/useFetch";
+
+const SearchForm = (props) => {
+  const { setJobs } = props;
+
+  const [jobDesc, setJobDesc] = useState("");
+  const [location, setLocation] = useState("");
   const [isFullTime, setIsFullTime] = useState(false);
 
   const handleInputChange = (setFunc, event) => {
@@ -14,7 +21,20 @@ const SearchForm = () => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log("Search");
+
+    fetch(
+      `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${jobDesc}&location=${location}&full_time=${isFullTime}`
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setJobs(result);
+          console.log("result", result);
+        },
+        (error) => {
+          console.log("error", error);
+        }
+      );
   };
 
   return (
@@ -46,6 +66,10 @@ const SearchForm = () => {
       </form>
     </div>
   );
+};
+
+SearchForm.propTypes = {
+  setJobs: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

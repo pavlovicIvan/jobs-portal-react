@@ -1,5 +1,5 @@
 // React
-import React from "react";
+import React, { useState } from "react";
 
 // Layout
 import Header from "./layout/Header";
@@ -12,12 +12,16 @@ import DisplayJobs from "./components/DisplayJobs";
 import "typeface-roboto";
 import "./App.css";
 
-const App = () => (
-  <>
-    <Header />
-    <SearchForm />
-    <DisplayJobs />
-  </>
-);
+const App = () => {
+  const [jobs, setJobs] = useState([]);
+
+  return (
+    <>
+      <Header />
+      <SearchForm setJobs={setJobs} />
+      <DisplayJobs jobs={jobs} />
+    </>
+  );
+};
 
 export default App;
