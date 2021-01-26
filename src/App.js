@@ -9,7 +9,6 @@ import SearchForm from "./components/SearchForm";
 import DisplayJobs from "./components/DisplayJobs";
 
 // Styling
-import "typeface-roboto";
 import "./App.css";
 
 const App = () => {
