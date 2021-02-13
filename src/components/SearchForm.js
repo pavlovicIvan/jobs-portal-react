@@ -8,8 +8,8 @@ import useFetch from "../hooks/useFetch";
 const SearchForm = (props) => {
   const { setJobs } = props;
 
-  const [jobDesc, setJobDesc] = useState("");
-  const [location, setLocation] = useState("");
+  const [jobDesc, setJobDesc] = useState("React");
+  const [location, setLocation] = useState("San Francisco");
   const [isFullTime, setIsFullTime] = useState(false);
 
   const handleInputChange = (setFunc, event) => {
@@ -38,11 +38,12 @@ const SearchForm = (props) => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={(event) => handleSearch(event)}>
+    <form onSubmit={(event) => handleSearch(event)}>
+      <div className="container">
         <label>
           What?
           <input
+            type="text"
             value={jobDesc}
             onChange={(event) => handleInputChange(setJobDesc, event)}
           />
@@ -50,21 +51,22 @@ const SearchForm = (props) => {
         <label>
           Where?
           <input
+            type="text"
             value={location}
             onChange={(event) => handleInputChange(setLocation, event)}
           />
         </label>
-        <label>
-          Full time?
+        <label className="checkBoxLabel">
           <input
             type="checkbox"
             checked={isFullTime}
             onChange={(event) => handleInputChange(setIsFullTime, event)}
           />
+          Full time?
         </label>
-        <input type="submit" value="Search!" />
-      </form>
-    </div>
+        <input type="submit" value="SEARCH" />
+      </div>
+    </form>
   );
 };
 
