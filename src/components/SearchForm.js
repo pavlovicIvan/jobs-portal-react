@@ -1,16 +1,24 @@
 // React
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 // Custom hooks
-import useFetch from "../hooks/useFetch";
+import callApi from "../helpers/functions";
 
 const SearchForm = (props) => {
-  const { setJobs } = props;
+  const { setJobs, setLoading } = props;
 
   const [jobDesc, setJobDesc] = useState("React");
-  const [location, setLocation] = useState("San Francisco");
+  const [location, setLocation] = useState("New York");
   const [isFullTime, setIsFullTime] = useState(false);
+
+  useEffect(() => {
+    callApi(
+      `https://github-jobs-proxy.appspot.com/positions?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
+      setLoading,
+      setJobs
+    );
+  }, []);
 
   const handleInputChange = (setFunc, event) => {
     const { target } = event;
@@ -22,19 +30,11 @@ const SearchForm = (props) => {
   const handleSearch = (event) => {
     event.preventDefault();
 
-    fetch(
-      `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${jobDesc}&location=${location}&full_time=${isFullTime}`
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setJobs(result);
-          console.log("result", result);
-        },
-        (error) => {
-          console.log("error", error);
-        }
-      );
+    callApi(
+      `https://github-jobs-proxy.appspot.com/positions?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
+      setLoading,
+      setJobs
+    );
   };
 
   return (
@@ -72,6 +72,7 @@ const SearchForm = (props) => {
 
 SearchForm.propTypes = {
   setJobs: PropTypes.func.isRequired,
+  setLoading: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

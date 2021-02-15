@@ -117,3 +117,21 @@ input[type="submit"]:focus {
 }
 
 /** DISPLAY JOBS **/
+
+.allJobsContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.jobContainer {
+  border: 1px solid #8e2de2;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.jobContainer:hover {
+  transform: scale(1.01);
+}
