@@ -6,12 +6,12 @@ const DisplayJobs = (props) => {
   const { jobs } = props;
 
   return (
-    <div className="container">
-      <ul>
-        {jobs.map((job) => (
-          <li key={job.id}>{`${job.title} @ ${job.location}`}</li>
-        ))}
-      </ul>
+    <div className="allJobsContainer">
+      {jobs.map((job) => (
+        <div className="jobContainer" key={job.id}>
+          {`${job.title} @ ${job.location}`}
+        </div>
+      ))}
     </div>
   );
 };
