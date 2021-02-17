@@ -2,8 +2,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-// Custom hooks
+// Custom functions
 import callApi from "../helpers/functions";
+
+// Custom strings
+const api = "https://github-jobs-proxy.appspot.com/positions";
 
 const SearchForm = (props) => {
   const { setJobs, setLoading } = props;
@@ -14,7 +17,7 @@ const SearchForm = (props) => {
 
   useEffect(() => {
     callApi(
-      `https://github-jobs-proxy.appspot.com/positions?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
+      `${api}?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
       setLoading,
       setJobs
     );
@@ -31,7 +34,7 @@ const SearchForm = (props) => {
     event.preventDefault();
 
     callApi(
-      `https://github-jobs-proxy.appspot.com/positions?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
+      `${api}?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
       setLoading,
       setJobs
     );

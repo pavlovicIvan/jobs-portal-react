@@ -27,14 +27,31 @@ html {
   display: flex;
 }
 
+.flexContainerColumnRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.flexContainerColumnSpaced {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 /** HEADER **/
 .header {
-  background-color: #fff;
   padding: 1rem;
-  display: flex;
-  justify-content: space-between;
   background: linear-gradient(to right, #8e2de2, #4a00e0);
   box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .logo {
@@ -46,7 +63,7 @@ html {
 .linkImg {
   height: 25px;
   width: 25px;
-  padding: 0 5px;
+  padding-left: 10px;
   transition: transform 0.2s;
 }
 
@@ -121,17 +138,84 @@ input[type="submit"]:focus {
 .allJobsContainer {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.5rem;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .jobContainer {
+  display: flex;
+  justify-content: space-between;
   border: 1px solid #8e2de2;
   border-radius: 5px;
   padding: 1rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   transition: transform 0.2s;
+  cursor: pointer;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .jobContainer:hover {
   transform: scale(1.01);
+}
+
+.jobTitle {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.jobCompanyName {
+  font-weight: 600;
+  margin-top: 0.3rem;
+}
+
+.chipType {
+  border-radius: 20px;
+  padding: 0.3rem 0.6rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: fit-content;
+  margin-right: 0.3rem;
+  margin: 1rem 0.3rem 0 0;
+}
+
+.chipType.color {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: #fff;
+}
+
+.chipType.colorless {
+  background: #fff;
+  color: #8e2de2;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+}
+
+.modalContent {
+  background-color: #fefefe;
+  border-radius: 5px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.descriptionContainer {
+  padding: 2rem;
 }

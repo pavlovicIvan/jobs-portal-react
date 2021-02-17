@@ -7,7 +7,7 @@ module.exports = {
     filename: "bundle.[hash].js",
     path: path.resolve(__dirname, "dist"),
   },
-  devtool: "eval-source-map",
+  devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),
