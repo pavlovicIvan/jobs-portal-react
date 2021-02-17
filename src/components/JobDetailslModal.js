@@ -32,6 +32,10 @@ const JobDetailslModal = (props) => {
     >
       <div className="modalContent">
         <JobInformation job={job} />
+        <div
+          dangerouslySetInnerHTML={{ __html: job.description }}
+          className="descriptionContainer"
+        />
       </div>
     </div>
   );

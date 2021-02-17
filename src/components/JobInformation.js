@@ -13,34 +13,33 @@ const JobInformation = (props) => {
       onClick={() => handleSelectJob(job)}
       onKeyPress={() => handleSelectJob(job)}
     >
-      <div>
+      <div className="flexContainerColumnSpaced">
         <div>
-          {job.title} <span>{job.type}</span>
+          <span className="jobTitle">{job.title}</span>
+          <span>{` @  ${job.location}`}</span>
         </div>
-        <div>{job.location}</div>
-        <div>{job.created_at}</div>
+        <div className="flexContainer">
+          <div className="chipType colorless">
+            {new Date(job.created_at).toLocaleDateString()}
+          </div>
+          <div className="chipType color">{job.type}</div>
+        </div>
       </div>
 
-      <div>
-        <div>
-          <img
-            src={job.company_logo}
-            alt="company_logo"
-            className="companyAvatar"
+      <a href={job.company_url} target="_blank" rel="noreferrer" tabIndex={-1}>
+        <div className="flexContainerColumnRight">
+          <div
+            style={{
+              backgroundImage: `url(${job.company_logo})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              height: "2.5rem",
+              width: "2.5rem",
+            }}
           />
+          <div className="jobCompanyName">{job.company}</div>
         </div>
-        <div>
-          <a
-            href={job.company_url}
-            target="_blank"
-            rel="noreferrer"
-            tabIndex={-1}
-          >
-            {job.company}
-          </a>
-        </div>
-        <div>{`${job.location}`}</div>
-      </div>
+      </a>
     </div>
   );
 };
