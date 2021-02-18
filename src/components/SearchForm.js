@@ -33,6 +33,8 @@ const SearchForm = (props) => {
   const handleSearch = (event) => {
     event.preventDefault();
 
+    setJobs([]);
+
     callApi(
       `${api}?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
       setLoading,
