@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 const JobInformation = (props) => {
   const { job, handleSelectJob } = props;
 
+  // Check false url-s
+  const companyUrl = job.company_url === "http:" ? null : job.company_url;
+
   return (
     <div
       className="jobContainer"
@@ -26,7 +29,13 @@ const JobInformation = (props) => {
         </div>
       </div>
 
-      <a href={job.company_url} target="_blank" rel="noreferrer" tabIndex={-1}>
+      <a
+        href={companyUrl}
+        target="_blank"
+        rel="noreferrer"
+        tabIndex={-1}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="flexContainerColumnRight">
           <div
             style={{

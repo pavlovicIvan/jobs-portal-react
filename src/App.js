@@ -19,8 +19,7 @@ const App = () => {
     <>
       <Header />
       <SearchForm setJobs={setJobs} setLoading={setLoading} />
-      {loading && <div className="container">Loading...</div>}
-      <DisplayJobs jobs={jobs} />
+      <DisplayJobs jobs={jobs} loading={loading} />
     </>
   );
 };

@@ -1,6 +1,7 @@
 // React
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
+import parse from "html-react-parser";
 
 // Custom components
 import JobInformation from "./JobInformation";
@@ -32,10 +33,14 @@ const JobDetailslModal = (props) => {
     >
       <div className="modalContent">
         <JobInformation job={job} />
-        <div
-          dangerouslySetInnerHTML={{ __html: job.description }}
-          className="descriptionContainer"
-        />
+        <div className="title">Job description</div>
+        <div className="descriptionContainer">
+          {parse(job.description || "")}
+        </div>
+        <div className="title">How to apply?</div>
+        <div className="descriptionContainer">
+          {parse(job.how_to_apply || "")}
+        </div>
       </div>
     </div>
   );

@@ -39,6 +39,24 @@ html {
   justify-content: space-between;
 }
 
+ul {
+  list-style-position: inside;
+}
+
+li::marker {
+  color: #8e2de2;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #8e2de2;
+}
+
+.spacer {
+  padding: 1rem;
+}
+
 /** HEADER **/
 .header {
   padding: 1rem;
@@ -76,7 +94,9 @@ html {
 form label {
   padding: 0.5rem;
   align-self: center;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #8e2de2;
 }
 
 @media (max-width: 800px) {
@@ -95,7 +115,7 @@ input {
 }
 
 input[type="text"] {
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: 2px solid #e8e8e8;
   border-radius: 5px;
 }
@@ -117,10 +137,6 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   transform: scale(1.05);
-}
-
-input[type="submit"]:focus {
-  outline: none;
 }
 
 @media (max-width: 800px) {
@@ -158,6 +174,43 @@ input[type="submit"]:focus {
 
 .jobContainer:hover {
   transform: scale(1.01);
+}
+
+.jobContainerSkeleton {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #c4c4c4;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 3.2rem;
+  margin: 0.5rem 0;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.jobContainerSkeleton::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -150px;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #e8e8e8 50%,
+    transparent 100%
+  );
+  animation: transit 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes transit {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
 }
 
 .jobTitle {
@@ -204,7 +257,7 @@ input[type="submit"]:focus {
   height: 100%;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
-  overflow: auto;
+  overflow-y: initial !important;
 }
 
 .modalContent {
@@ -214,8 +267,26 @@ input[type="submit"]:focus {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
 }
 
 .descriptionContainer {
-  padding: 2rem;
+  border: 1px solid #8e2de2;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+
+.descriptionContainer h2 {
+  padding: 1rem 0;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.descriptionContainer p {
+  padding: 0.5rem 0;
 }
