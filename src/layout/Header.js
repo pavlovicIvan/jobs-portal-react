@@ -11,7 +11,7 @@ const Header = () => (
       </div>
       <div className="flexContainer">
         <a
-          href="https://github.com/pavlovicIvan"
+          href="https://github.com/pavlovicIvan/react-job-portal-app"
           target="_blank"
           rel="noreferrer"
         >

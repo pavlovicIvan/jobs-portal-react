@@ -26,23 +26,36 @@ const JobDetailslModal = (props) => {
   };
 
   return (
-    <div
-      ref={modalRef}
-      className="modal"
-      style={{ display: showModal ? "block" : "none" }}
-    >
-      <div className="modalContent">
-        <JobInformation job={job} />
-        <div className="title">Job description</div>
-        <div className="descriptionContainer">
-          {parse(job.description || "")}
+    <>
+      {showModal && (
+        <div
+          className="fab"
+          onClick={() => setShowModal(false)}
+          onKeyPress={() => setShowModal(false)}
+          role="button"
+          tabIndex={0}
+        >
+          CLOSE
         </div>
-        <div className="title">How to apply?</div>
-        <div className="descriptionContainer">
-          {parse(job.how_to_apply || "")}
+      )}
+      <div
+        ref={modalRef}
+        className="modal"
+        style={{ display: showModal ? "block" : "none" }}
+      >
+        <div className="modalContent">
+          <JobInformation job={job} />
+          <div className="title">Job description</div>
+          <div className="descriptionContainer">
+            {parse(job.description || "")}
+          </div>
+          <div className="title">How to apply?</div>
+          <div className="descriptionContainer">
+            {parse(job.how_to_apply || "")}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

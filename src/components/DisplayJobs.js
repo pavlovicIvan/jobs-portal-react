@@ -1,6 +1,7 @@
 // React
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import nothingFound from "../assets/images/nothingFound.svg";
 
 // Custom components
 import JobDetailsModal from "./JobDetailslModal";
@@ -34,6 +35,14 @@ const DisplayJobs = (props) => {
           </>
         )}
         {jobs.length > 0 && <div className="title">We found this:</div>}
+        {jobs.length === 0 && !loading && (
+          <div className="noMatchContainer">
+            <div className="title">
+              Nothing found. Please try with different search terms.
+            </div>
+            <img src={nothingFound} className="noMatchImg" alt="no match" />
+          </div>
+        )}
         {jobs.map((job) => (
           <JobInformation
             key={job.id}
