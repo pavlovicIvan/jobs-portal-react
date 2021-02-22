@@ -34,7 +34,12 @@ const DisplayJobs = (props) => {
             ))}
           </>
         )}
-        {jobs.length > 0 && <div className="title">We found this:</div>}
+        {jobs.length > 0 && (
+          <>
+            <div className="title">We found this:</div>{" "}
+            <div className="divider" />
+          </>
+        )}
         {jobs.length === 0 && !loading && (
           <div className="noMatchContainer">
             <div className="title">

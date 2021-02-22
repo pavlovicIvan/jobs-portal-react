@@ -46,10 +46,12 @@ const JobDetailslModal = (props) => {
         <div className="modalContent">
           <JobInformation job={job} />
           <div className="title">Job description</div>
+          <div className="divider" />
           <div className="descriptionContainer">
             {parse(job.description || "")}
           </div>
           <div className="title">How to apply?</div>
+          <div className="divider" />
           <div className="descriptionContainer">
             {parse(job.how_to_apply || "")}
           </div>
