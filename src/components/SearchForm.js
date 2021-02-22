@@ -45,6 +45,7 @@ const SearchForm = (props) => {
   return (
     <form onSubmit={(event) => handleSearch(event)}>
       <div className="container">
+        <div className="intro">Take your career to the next level</div>
         <label>
           What?
           <input

@@ -19,11 +19,15 @@ const JobInformation = (props) => {
       <div className="flexContainerColumnSpaced">
         <div>
           <span className="jobTitle">{job.title}</span>
-          <span>{` @  ${job.location}`}</span>
+          <br />
+          <span className="jobLocation">{` @  ${job.location}`}</span>
         </div>
         <div className="flexContainer">
           <div className="chipType colorless">
-            {new Date(job.created_at).toLocaleDateString()}
+            {new Date(job.created_at).toLocaleDateString("en-US", {
+              year: "2-digit",
+              month: "2-digit",
+            })}
           </div>
           <div className="chipType color">{job.type}</div>
         </div>
@@ -39,11 +43,14 @@ const JobInformation = (props) => {
         <div className="flexContainerColumnRight">
           <div
             style={{
+              backgroundColor: "#f7f7f7",
+              borderRadius: "50%",
               backgroundImage: `url(${job.company_logo})`,
               backgroundPosition: "center",
-              backgroundSize: "cover",
-              height: "2.5rem",
-              width: "2.5rem",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              height: "2.8rem",
+              width: "2.8rem",
             }}
           />
           <div className="jobCompanyName">{job.company}</div>
