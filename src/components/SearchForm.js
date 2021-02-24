@@ -17,6 +17,7 @@ const SearchForm = (props) => {
 
   const scrollToRef = useRef();
 
+  // Call api on first render
   useEffect(() => {
     callApi(
       `${api}?description=${jobDesc}&location=${location}&full_time=${isFullTime}`,
