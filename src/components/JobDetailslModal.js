@@ -1,5 +1,5 @@
 // React
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import parse from "html-react-parser";
 
@@ -24,6 +24,11 @@ const JobDetailslModal = (props) => {
       setShowModal(false);
     }
   };
+
+  // Disable body scroll when modal is shown
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "auto";
+  }, [showModal]);
 
   return (
     <>

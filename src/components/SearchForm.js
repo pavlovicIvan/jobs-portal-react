@@ -1,5 +1,5 @@
 // React
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 // Custom functions
@@ -14,6 +14,8 @@ const SearchForm = (props) => {
   const [jobDesc, setJobDesc] = useState("React");
   const [location, setLocation] = useState("New York");
   const [isFullTime, setIsFullTime] = useState(false);
+
+  const scrollToRef = useRef();
 
   useEffect(() => {
     callApi(
@@ -40,6 +42,8 @@ const SearchForm = (props) => {
       setLoading,
       setJobs
     );
+
+    scrollToRef.current.scrollIntoView();
   };
 
   return (
@@ -72,6 +76,7 @@ const SearchForm = (props) => {
         </label>
         <input type="submit" value="SEARCH" />
       </div>
+      <div ref={scrollToRef} />
     </form>
   );
 };
