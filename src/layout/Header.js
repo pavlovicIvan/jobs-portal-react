@@ -1,5 +1,7 @@
 // React
 import React from "react";
+
+// Images
 import githubImg from "../assets/images/github.svg";
 import linkedinImg from "../assets/images/linkedin.svg";
 

@@ -6,7 +6,6 @@ const callApi = (url, setLoading, setJobs) => {
       (result) => {
         setLoading(false);
         setJobs(result);
-        console.log("result", result);
       },
       (error) => {
         console.log("error", error);

@@ -27,6 +27,7 @@ const DisplayJobs = (props) => {
       />
       <div className="allJobsContainer">
         {loading && (
+          // Skeleton loaders
           <>
             <div className="spacer" />
             {[0, 1, 2, 3, 4].map((skeleton) => (
